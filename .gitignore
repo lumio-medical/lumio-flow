@@ -2,4 +2,5 @@
 .gitignore~
 /target
 *.iml
+.java-version
 src/test/java/Throwaway*

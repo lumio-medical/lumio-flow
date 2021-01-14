@@ -78,18 +78,42 @@ public interface FlowOut <O> extends Node
     <NO> StreamGenerator<O, NO> stream(Function<O, Generator<NO>> generatorSupplier);
 
     /**
+     * Returns a Recipient node with a custom identifier.
      *
-     * @param name
-     * @return
+     * @param name The identifier for the recipient in the Output
+     * @return the resulting Recipient node
      */
     Recipient<O> collect(String name);
 
     /**
+     * Returns a Recipient node with an automatically defined identifier.
      *
-     * @return
+     * @return the resulting Recipient node
      */
     default Recipient<O> collect()
     {
         return this.collect(UUID.randomUUID().toString());
+    }
+
+    /**
+     * A QoL method for performing a collect operation with a final transformation operation.
+     *
+     * @see #pipe(Transformer)
+     * @see #collect()
+     */
+    default <NO> Recipient<NO> collect(Transformer<O, NO> transformer)
+    {
+        return this.pipe(transformer).collect();
+    }
+
+    /**
+     * A QoL method for performing a collect operation with a final transformation operation.
+     *
+     * @see #pipe(Transformer)
+     * @see #collect(String)
+     */
+    default <NO> Recipient<NO> collect(String name, Transformer<O, NO> transformer)
+    {
+        return this.pipe(transformer).collect(name);
     }
 }
