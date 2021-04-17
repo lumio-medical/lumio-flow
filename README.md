@@ -6,6 +6,8 @@
 ![GitHub](https://img.shields.io/github/license/lumio-medical/lumio-flow)
 [![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2Flumio-medical%2Flumio-flow.svg?type=shield)](https://app.fossa.com/projects/git%2Bgithub.com%2Flumio-medical%2Flumio-flow?ref=badge_shield)
 
+This project is now archived, further developments should happen over at [noleme-flow](https://github.com/Noleme/noleme-flow).
+
 This library provides features enabling DAG structuring of data processing programs such as ETLs.
 
 Implementations found in this package will shouldn't be tied to any specific Lumio project.
